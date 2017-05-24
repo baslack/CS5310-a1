@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from sorts import *
 from copy import *
 
@@ -72,5 +74,19 @@ class test_sorts(unittest.TestCase):
         self.assertEqual(a, a0)
 
 
+    def test_select1(self):
+        a = deepcopy(_b)
+        _4th = select(findpivot_1, a, 0, 7, 4)
+        self.assertEqual(_4th, 123)
+
+
+    def test_selectr(self):
+        a = deepcopy(_b)
+        _4th = select(findpivot_r, a, 0, 7, 4)
+        self.assertEqual(_4th, 123)
+
+
 if __name__ == "__main__":
-    unittest.main()
+    suite = unittest.TestLoader().loadTestsFromTestCase(test_sorts)
+    unittest.TextTestRunner(verbosity=2).run(suite)
+    #unittest.main()
