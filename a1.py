@@ -26,8 +26,8 @@ def average_qsort_time(findpivot, n, max, iter, bAvg):
     total_time = 0;
     a = deepcopy(_a)
     if n == 10:
-        print "qsort{0}, n = 10, starting list\n\r".format(repr(findpivot))
-        print "{0}\n\r".format(a)
+        print "qsort{0}, n = 10, starting list".format(repr(findpivot))
+        print "{0}".format(a)
     for i in range(iter):
         a = deepcopy(_a)
         start_time = time.clock()
@@ -35,8 +35,8 @@ def average_qsort_time(findpivot, n, max, iter, bAvg):
         end_time = time.clock()
         total_time += (end_time-start_time)
     if n == 10:
-        print "qsort{0}, n = 10, ending list\n\r".format(repr(findpivot))
-        print "{0}\n\r".format(a)
+        print "qsort{0}, n = 10, ending list".format(repr(findpivot))
+        print "{0}".format(a)
     average_time = total_time / iter
     return average_time
 
@@ -66,8 +66,8 @@ def average_select_time(findpivot, n, max, iter, bAvg):
 
     a = deepcopy(_a)
     if n == 10:
-        print "select{0}, n = 10, starting list, k: {1}\n\r".format(repr(findpivot), k)
-        print "{0}\n\r".format(a)
+        print "select{0}, n = 10, starting list, k: {1}".format(repr(findpivot), k)
+        print "{0}".format(a)
     for i in range(iter):
         a = deepcopy(_a)
         start_time = time.clock()
@@ -75,8 +75,8 @@ def average_select_time(findpivot, n, max, iter, bAvg):
         end_time = time.clock()
         total_time += (end_time-start_time)
     if n == 10:
-        print "select{0}, n = 10, ending list, k: {1}\n\r".format(repr(findpivot), k)
-        print "{0}\n\r".format(a)
+        print "select{0}, n = 10, ending list, k: {1}".format(repr(findpivot), k)
+        print "{0}".format(a)
     average_time = total_time / iter
     return average_time
 
@@ -160,20 +160,20 @@ if __name__ == "__main__":
             findpivot_str = pattern.search(repr(findpivot)).group(1)
             for n in _n:
                 avg = average_qsort_time(findpivot, n, _max, _iter, True)
-                print("qsort:{0} avg, {1}, {2} ms\n\r".format(findpivot_str, n, avg*(10**6)))
+                print(u"qsort:{0} avg, {1}, {2} \u03BCs".format(findpivot_str, n, avg*(10**6)))
                 f.write("qsort:{0} avg, {1}, {2}\n\r".format(findpivot_str, n, avg*(10**6)))
             for n in _n:
                 avg = average_qsort_time(findpivot, n, _max, _iter, False)
-                print("qsort:{0} worst, {1}, {2} ms\n\r".format(findpivot_str, n, avg*(10**6)))
+                print(u"qsort:{0} worst, {1}, {2} \u03BCs".format(findpivot_str, n, avg*(10**6)))
                 f.write("qsort:{0} worst, {1}, {2}\n\r".format(findpivot_str, n, avg*(10**6)))
         _findpivots.remove(findpivot_m)
         for findpivot in _findpivots:
             findpivot_str = pattern.search(repr(findpivot)).group(1)
             for n in _n:
                 avg = average_select_time(findpivot, n,  _max, _iter, True)
-                print("select:{0} avg, {1}, {2} ms\n\r".format(findpivot_str, n, avg*(10**6)))
+                print(u"select:{0} avg, {1}, {2} \u03BCs".format(findpivot_str, n, avg*(10**6)))
                 f.write("select:{0} avg, {1}, {2}\n\r".format(findpivot_str, n, avg*(10**6)))
             for n in _n:
                 avg = average_select_time(findpivot, n, _max, _iter, False)
-                print("select:{0} worst, {1}, {2} ms\n\r".format(findpivot_str, n, avg*(10**6)))
+                print(u"select:{0} worst, {1}, {2} \u03BCs".format(findpivot_str, n, avg*(10**6)))
                 f.write("select:{0} worst, {1}, {2}\n\r".format(findpivot_str, n, avg*(10**6)))
